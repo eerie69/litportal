@@ -1,0 +1,399 @@
+/* src/styles/globals.css */
+/* Подключение винтажных шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+@import "tailwindcss";
+
+/* ✅ ОСНОВНАЯ ТЕМА (тёмная винтажная) - НЕ ИЗМЕНЯЕТСЯ */
+:root {
+  /* Винтажная цветовая палитра PATEPHONE */
+  --background: #0a0a0a;
+  --foreground: #e8e6e3;
+  
+  /* Основные цвета */
+  --primary: #c9a961; /* Золото */
+  --primary-foreground: #1a1a1a;
+  --secondary: #2d2420; /* Тёмно-коричневый */
+  --secondary-foreground: #e8e6e3;
+  
+  /* Акценты */
+  --accent: #8b2635; /* Бордовый */
+  --accent-foreground: #f5f0e8;
+  --muted: #1c1917; /* Тёмный камень */
+  --muted-foreground: #a8a29e;
+  
+  /* Карточки и поверхности */
+  --card: #141210;
+  --card-foreground: #e8e6e3;
+  --popover: #1a1614;
+  --popover-foreground: #e8e6e3;
+  
+  /* Границы и разделители */
+  --border: #3d342f;
+  --input: #2d2420;
+  --ring: #c9a961;
+  
+  /* Специальные винтажные цвета */
+  --vintage-paper: #d4c5b0;
+  --vintage-wood: #3d2817;
+  --vintage-brass: #b5a642;
+  --vintage-burgundy: #5c1a29;
+  --vinyl-black: #0f0f0f;
+  
+  /* Текстуры */
+  --texture-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  
+  --font-serif: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --font-sans: 'Alegreya Sans', system-ui, sans-serif;
+  --radius: 0.25rem;
+}
+
+/* ДОБАВЛЕНА БЕЛАЯ ТЕМА (альтернативная, светлая) */
+.light {
+  --background: #fdfaf7;
+  --foreground: #2c2520;
+  
+  /* Основные цвета */
+  --primary: #b8860b;
+  --primary-foreground: #ffffff;
+  --secondary: #f4efe6;
+  --secondary-foreground: #3a2c24;
+  
+  /* Акценты */
+  --accent: #d4a373;
+  --accent-foreground: #2c2520;
+  --muted: #ebe4d8;
+  --muted-foreground: #6b5b4f;
+  
+  /* Карточки и поверхности */
+  --card: #ffffff;
+  --card-foreground: #2c2520;
+  --popover: #fffef7;
+  --popover-foreground: #2c2520;
+  
+  /* Границы и разделители */
+  --border: #e5d9cc;
+  --input: #f0eadd;
+  --ring: #b8860b;
+  
+  /* Специальные винтажные цвета */
+  --vintage-paper: #fdfaf7;
+  --vintage-wood: #8b6b4a;
+  --vintage-brass: #d4a373;
+  --vintage-burgundy: #9b4b4b;
+  --vinyl-black: #2c2c2c;
+  
+  /* Текстура для светлой темы */
+  --texture-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --radius: var(--radius);
+}
+
+/* Плавные переходы для смены темы */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  background-image: var(--texture-noise);
+  background-attachment: fixed;
+}
+
+/* Стили для светлой темы - корректировка теней и эффектов */
+.light .vintage-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.light .vintage-btn {
+  background: linear-gradient(180deg, #b8860b 0%, #8b6508 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.light .vintage-btn:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.light .book-card-vintage {
+  background: linear-gradient(135deg, var(--card) 0%, var(--secondary) 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.light .book-card-vintage:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.light .vintage-divider::before {
+  background: var(--background);
+}
+
+.light .vintage-badge {
+  color: #ffffff;
+}
+
+/* Винтажные эффекты (без изменений) */
+.vintage-card {
+  background: linear-gradient(135deg, var(--card) 0%, var(--secondary) 100%);
+  border: 1px solid var(--border);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.vintage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.3), transparent);
+}
+
+.vintage-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--texture-noise);
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Винтажная кнопка */
+.vintage-btn {
+  background: linear-gradient(180deg, var(--primary) 0%, #a8934a 100%);
+  color: var(--primary-foreground);
+  border: 1px solid #8b7355;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.vintage-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.vintage-btn:hover::before {
+  left: 100%;
+}
+
+.vintage-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.vintage-btn:active {
+  transform: translateY(0);
+}
+
+/* Декоративная рамка в стиле патефона */
+.gramophone-frame {
+  border: 3px double var(--border);
+  position: relative;
+  padding: 1.5rem;
+}
+
+.gramophone-frame::before,
+.gramophone-frame::after {
+  content: '◆';
+  position: absolute;
+  color: var(--primary);
+  font-size: 0.75rem;
+}
+
+.gramophone-frame::before {
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.gramophone-frame::after {
+  bottom: 0.5rem;
+  right: 0.5rem;
+}
+
+/* Винтажный заголовок */
+.vintage-heading {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, var(--foreground) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Эффект старой бумаги */
+.paper-texture {
+  background-color: var(--vintage-paper);
+  background-image: 
+    linear-gradient(90deg, rgba(0,0,0,0.02) 50%, transparent 50%),
+    linear-gradient(rgba(0,0,0,0.02) 50%, transparent 50%);
+  background-size: 4px 4px;
+  color: #2d2420;
+}
+
+/* Винтажная карточка книги */
+.book-card-vintage {
+  background: linear-gradient(180deg, #1a1614 0%, #0f0f0f 100%);
+  border: 1px solid var(--border);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+}
+
+.book-card-vintage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(201, 169, 97, 0.1);
+  pointer-events: none;
+}
+
+.book-card-vintage:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(201, 169, 97, 0.1);
+}
+
+/* Винтажный бейдж */
+.vintage-badge {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--vintage-burgundy) 100%);
+  color: var(--vintage-paper);
+  font-family: var(--font-serif);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Разделитель в стиле винтажа */
+.vintage-divider {
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--border) 20%, 
+    var(--primary) 50%, 
+    var(--border) 80%, 
+    transparent 100%
+  );
+  margin: 2rem 0;
+  position: relative;
+}
+
+.vintage-divider::before {
+  content: '❧';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--primary);
+  background: var(--background);
+  padding: 0 1rem;
+  font-size: 1.25rem;
+}
+
+/* Анимация виниловой пластинки */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vinyl-spin {
+  animation: spin 3s linear infinite;
+}
+
+/* Скроллбар в винтажном стиле */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border: 1px solid var(--border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Фокус с винтажным свечением */
+.vintage-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--primary);
+}
+
+/* Текстура дерева для фона */
+.wood-texture {
+  background: 
+    repeating-linear-gradient(90deg, 
+      transparent 0px, 
+      rgba(139, 69, 19, 0.03) 1px, 
+      transparent 2px
+    ),
+    linear-gradient(135deg, #1a1410 0%, #0f0c0a 100%);
+}
+
+/* Светлая версия текстуры дерева */
+.light .wood-texture {
+  background: 
+    repeating-linear-gradient(90deg, 
+      transparent 0px, 
+      rgba(139, 69, 19, 0.02) 1px, 
+      transparent 2px
+    ),
+    linear-gradient(135deg, #fdfaf7 0%, #f8f2ea 100%);
+}
