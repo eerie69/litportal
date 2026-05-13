@@ -2,7 +2,7 @@
 export const siteConfig = {
   name: "LitPortal",
   description: "Каталог книг с эксклюзивными главами в Telegram",
-  url: process.env.SITE_URL || "http://localhost:3000",
+  url: process.env.SITE_URL || "https://litportal.vercel.app",
   telegramChannel: process.env.TELEGRAM_CHANNEL_URL || "https://t.me/mirror_book",
   author: {
     name: "LitPortal Team",
