@@ -13,14 +13,22 @@ import { siteConfig } from '@/config/site';
 export const metadata: Metadata = {
   // Основные мета-теги
   title: {
-    default: 'LitPortal | Эксклюзивные главы книг Royal Road в Telegram',
+    default: 'LitPortal | Сливы ПАТРЕОН книг Royal Road и ранний доступ в Telegram',
     template: '%s | LitPortal',
   },
-  description: '📚 Каталог авторов и книг с Royal Road. Читайте бесплатные главы на сайте, а продвинутые/премиум главы — эксклюзивно в нашем Telegram-канале. ЛитРПГ, фэнтези, прогрессия, исекай и другие жанры.',
+  description: 'The Primal Hunter, Hell Difficulty Tutorial, Return of the Runebound Professor, Elydes, The Hundred Reigns. Продвинутые главы/СЛИВЫ с Patreon и ранний доступ к переводам. Ежедневные обновления в Telegram.',
   
   // Ключевые слова для поиска (100+ запросов)
   keywords: [
     // Основные запросы
+    'The Primal Hunter ПАТРЕОН сливы',
+    'Hell Difficulty Tutorial ПАТРЕОН сливы',
+    'Return of the Runebound Professor ПАТРЕОН сливы',
+    'Elydes ПАТРЕОН сливы',
+    'The Hundred Reigns ПАТРЕОН сливы',
+    'ранний доступ к патреону',
+    'сливы книг Royal Road',
+    'продвинутые главы телеграм',
     'royal road книги',
     'litrpg книги',
     'прогрессия фэнтези',
@@ -89,8 +97,8 @@ export const metadata: Metadata = {
   
   // Open Graph для соцсетей
   openGraph: {
-    title: 'LitPortal | Эксклюзивные главы книг Royal Road',
-    description: 'Каталог авторов и книг с Royal Road. Бесплатные главы на сайте, премиум — в Telegram. LitRPG, фэнтези, прогрессия и другие жанры.',
+    title: 'LitPortal | Сливы ПАТРЕОН книг Royal Road',
+    description: 'The Primal Hunter, Hell Difficulty Tutorial, Return of the Runebound Professor, Elydes, The Hundred Reigns. Продвинутые главы/СЛИВЫ с Patreon и ранний доступ к переводам. Ежедневные обновления в Telegram.',
     type: 'website',
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -100,7 +108,7 @@ export const metadata: Metadata = {
         url: `${siteConfig.url}/og-home.jpg`,
         width: 1200,
         height: 630,
-        alt: 'PATEPHONE — эксклюзивные главы книг в Telegram',
+        alt: 'Сливы ПАТРЕОН книг Royal Road',
       },
     ],
   },
@@ -108,8 +116,8 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: 'PATEPHONE | Эксклюзивные главы книг',
-    description: 'Каталог авторов Royal Road. Бесплатные главы + премиум в Telegram.',
+    title: 'Сливы ПАТРЕОН книг Royal Road',
+    description: 'The Primal Hunter, Hell Difficulty Tutorial, Return of the Runebound Professor, Elydes, The Hundred Reigns. Продвинутые главы/СЛИВЫ с Patreon и ранний доступ к переводам. Ежедневные обновления в Telegram.',
     creator: siteConfig.twitterHandle,
   },
   
@@ -136,7 +144,7 @@ const jsonLd = {
       '@type': 'WebSite',
       name: siteConfig.name,
       url: siteConfig.url,
-      description: 'Каталог книг с эксклюзивными главами в Telegram',
+      description: 'The Primal Hunter, Hell Difficulty Tutorial, Return of the Runebound Professor, Elydes, The Hundred Reigns. Продвинутые главы/СЛИВЫ с Patreon и ранний доступ к переводам. Ежедневные обновления в Telegram.',
       publisher: {
         '@type': 'Organization',
         name: siteConfig.name,
